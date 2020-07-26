@@ -69,7 +69,7 @@ update_kernel_sig:
 ### REAL TARGETS
 
 $(KERNEL_EXTRACTED): $(PRAWNOS_BUILD)
-	https://www.kernel.org/pub/linux/kernel/v5.x/linux-$(KVER).tar.gz -O $(KERNEL_TAR)
+	wget https://www.kernel.org/pub/linux/kernel/v5.x/linux-$(KVER).tar.gz -O $(KERNEL_TAR)
 	tar xvzf $(KERNEL_TAR) -C $(PRAWNOS_BUILD)
 	touch $(KERNEL_EXTRACTED)
 
