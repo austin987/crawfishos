@@ -6,7 +6,7 @@ PrawnOS
 </h1>
 
 
-#### A build system for making blobless Debian and mainline Linux kernel for the Asus c201 Chromebook with support for dmcrypt/LUKS root partition encryption
+#### A build system for making blobbed Debian and mainline Linux kernel for the Asus c201 Chromebook with support for dmcrypt/LUKS root partition encryption
 
 Build Debian filesystem with:
 * No blobs, anywhere. 
@@ -14,7 +14,7 @@ Build Debian filesystem with:
 * Currently PrawnOS supports xfce and lxqt as choices for desktop enviroment.
 * full root filesystem encryption
 
-Build a deblobbed mainline kernel with:
+Build a blobbed mainline kernel with:
 * Patches for reliable USB.
 * Patches to support the custom GPT partition table required to boot.
 * No support for Atheros AR9271 and AR7010 WiFi dongles.
