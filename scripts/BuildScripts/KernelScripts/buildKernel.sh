@@ -52,8 +52,12 @@ make mrproper
 
 #copy in the resources, initramfs
 cp $INITRAMFS .
-cp $RESOURCES/config .config
+cp $RESOURCES/config .confige
 cp $RESOURCES/kernel.its .
+mkdir brcm
+cp $RESOURCES/brcmfmac4354-sdio.bin brcm/
+cp $RESOURCES/brcmfmac4354-sdio.txt brcm/
+cp $RESOURCES/brcmfmac4354-sdio.txt 'brcm/brcmfmac4354-sdio.google,veyron-minnie-rev4.txt'
 make -j $(($(nproc) +1))  CROSS_COMPILE=arm-none-eabi- ARCH=arm zImage modules dtbs
 mkimage -D "-I dts -O dtb -p 2048" -f kernel.its vmlinux.uimg
 dd if=/dev/zero of=bootloader.bin bs=512 count=1
