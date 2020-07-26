@@ -13,7 +13,7 @@ KERNEL_RESOURCES := $(PRAWNOS_KERNEL)/resources
 KERNEL_SOURCES := $(PRAWNOS_KERNEL)/sources
 KERNEL_PATCHES := $(PRAWNOS_KERNEL)/patches
 
-KERNEL_TAR := $(KERNEL_SOURCES)/linux-libre-$(KVER)-gnu.tar.lz
+KERNEL_TAR := $(KERNEL_SOURCES)/linux-$(KVER).tar.gz
 KERNEL_TAR_SIGNATURE := $(KERNEL_TAR).sign
 KERNEL_BUILT := $(PRAWNOS_KERNEL_BUILD)/vmlinux.kpart
 
@@ -64,15 +64,13 @@ update_ath9k_tar:
 
 .PHONY: update_kernel_sig
 update_kernel_sig:
-	wget https://www.linux-libre.fsfla.org/pub/linux-libre/releases/$(KVER)-gnu/linux-libre-$(KVER)-gnu.tar.lz.sign -O $(KERNEL_TAR_SIGNATURE)
+	# dummy
 
 ### REAL TARGETS
 
 $(KERNEL_EXTRACTED): $(PRAWNOS_BUILD)
-	wget https://www.linux-libre.fsfla.org/pub/linux-libre/releases/$(KVER)-gnu/linux-libre-$(KVER)-gnu.tar.lz -O $(KERNEL_TAR)
-	gpg --import $(KERNEL_RESOURCES)/linux-libre-signing-key.gpg
-	gpg --verify $(KERNEL_TAR_SIGNATURE) $(KERNEL_TAR)
-	tar --lzip -xvf $(KERNEL_TAR) -C $(PRAWNOS_BUILD)
+	https://www.kernel.org/pub/linux/kernel/v5.x/linux-$(KVER).tar.gz -O $(KERNEL_TAR)
+	tar xvzf $(KERNEL_TAR) -C $(PRAWNOS_BUILD)
 	touch $(KERNEL_EXTRACTED)
 
 $(ATH9K_EXTRACTED): $(PRAWNOS_BUILD)
@@ -87,7 +85,7 @@ $(KERNEL_PATCHED): $(KERNEL_EXTRACTED)
 $(ATH9K_BUILT): $(ATH9K_EXTRACTED)
 	$(PRAWNOS_KERNEL_SCRIPTS_BUILD_ATH9K) $(PRAWNOS_ATH9K_BUILD)
 
-$(KERNEL_BUILT): $(KERNEL_EXTRACTED) $(KERNEL_PATCHED) $(ATH9K_BUILT)
+$(KERNEL_BUILT): $(KERNEL_EXTRACTED) $(KERNEL_PATCHED) # $(ATH9K_BUILT)
 	make -C $(PRAWNOS_INITRAMFS)
 	rm -rf $(KERNEL_BUILD_LOG)
 	$(PRAWNOS_KERNEL_SCRIPTS_BUILD) $(KVER) $(KERNEL_RESOURCES) $(PRAWNOS_KERNEL_BUILD) $(PRAWNOS_INITRAMFS_IMAGE) 2>&1 | tee $(KERNEL_BUILD_LOG)
