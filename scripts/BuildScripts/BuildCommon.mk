@@ -4,7 +4,8 @@ BUILD_COMMON_MK := 1
 #Place all shared make vars below
 #=========================================================================================
 ### MISC GLOBALS
-KVER=5.4.29
+#KVER=5.4.29
+KVER=5.7.10
 # Otherwise errors are ignored when output is piped to tee:
 SHELL := /bin/bash -o pipefail
 
