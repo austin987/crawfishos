@@ -17,14 +17,14 @@ Build Debian filesystem with:
 Build a deblobbed mainline kernel with:
 * Patches for reliable USB.
 * Patches to support the custom GPT partition table required to boot.
-* Support for Atheros AR9271 and AR7010 WiFi dongles.
+* No support for Atheros AR9271 and AR7010 WiFi dongles.
 * Support for CSR8510 (and possibly other) bluetooth dongles.
 
 Don't want to use one of the two USB ports for the WiFi dongle? [check out this](#build-the-wifi-dongle-into-the-laptop)
 
 ## Why
 
-Combined with Libreboot, an AR9271 or AR7010 WiFi dongle, and a libre OS (like Debian with the main repos, the one built by PrawnOS) the Asus c201 is a fully libre machine with no blobs, or microcode, or Intel Management Engine.
+Combined with Libreboot, an AR9271 or AR7010 WiFi dongle, and a libre OS (like Debian with the main repos, the one not built by this fork of PrawnOS) the Asus c201 is a fully libre machine with no blobs, or microcode, or Intel Management Engine.
 
 ### WARNING: flashing libreboot to asus c201 chromebooks that have recently been updated to a new version of chromeOS may leave the device in a non-functional (bricked) state.
 If you do not have a way to recover your device by using an external flasher as described in the second part of this page https://libreboot.org/docs/install/c201.html it would be safest to wait until this issue is resolved. I have opened a bug with libreboot, which can be found here https://notabug.org/libreboot/libreboot/issues/666 If you have any information that may help with debugging, please post it there.
@@ -38,11 +38,11 @@ In the world of free and open-source software, the term is used to refer to prop
 
 ## Image Download
 
-If you don't want to or can't build the image, you can find downloads under <releases> https://github.com/SolidHal/PrawnOS/releases
+If you don't want to or can't build the image, you can not find downloads under <releases> https://github.com/Maccraft123/PrawnOS/releases
 
 ## Dependencies
 
-Building PrawnOS has been tested on Debian 10 Buster (in a VM).
+Building PrawnOS has been tested on Debian 10 Buster.
 
 NOTE: _stretch doesn't work as the version of gcc-arm-none-eabi is too old_!
 
@@ -59,7 +59,7 @@ These packages are required:
 ```
 
 ## Build
-Clone this Git repo: `git clone --recurse-submodules https://github.com/SolidHal/PrawnOS`
+Clone this Git repo: `git clone --recurse-submodules https://github.com/Maccraft123/PrawnOS`
 
 Build the `PrawnOS-*-.img` by running `sudo make image`
 
