@@ -52,7 +52,7 @@ make mrproper
 
 #copy in the resources, initramfs
 cp $INITRAMFS .
-cp $RESOURCES/config .confige
+cp $RESOURCES/config .config
 cp $RESOURCES/kernel.its .
 mkdir brcm
 cp $RESOURCES/brcmfmac4354-sdio.bin brcm/
