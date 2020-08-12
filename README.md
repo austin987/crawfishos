@@ -3,4 +3,4 @@
 
 <h1 align="center">
 ShrimpOS
-</h1>
+</h>
