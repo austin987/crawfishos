@@ -83,7 +83,6 @@ update_kernel_sig:
 
 ### REAL RULES
 
-<<<<<<< HEAD
 $(KERNEL_TAR):
 	wget https://www.kernel.org/pub/linux/kernel/v5.x/linux-$(KVER).tar.gz -O $(KERNEL_TAR)
 
