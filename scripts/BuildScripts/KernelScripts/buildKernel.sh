@@ -85,7 +85,7 @@ fi
 cp $INITRAMFS .
 cp $RESOURCES/config .config
 cp $RESOURCES/kernel.its .
-mkdir brcm
+[ -d brcm ] || mkdir brcm
 cp $RESOURCES/brcmfmac4354-sdio.bin brcm/
 cp $RESOURCES/brcmfmac4354-sdio.txt brcm/
 cp $RESOURCES/brcmfmac4354-sdio.txt 'brcm/brcmfmac4354-sdio.google,veyron-minnie-rev4.txt'
