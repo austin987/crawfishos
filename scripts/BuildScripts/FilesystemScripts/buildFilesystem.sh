@@ -195,13 +195,13 @@ cp $build_resources_apt/sources.list $outmnt/etc/apt/sources.list
 cp $build_resources_apt/prawnos.list $outmnt/etc/apt/sources.list.d/
 sed -i -e "s/suite/$DEBIAN_SUITE/g" $outmnt/etc/apt/sources.list
 sed -i -e "s/suite/$DEBIAN_SUITE/g" $outmnt/etc/apt/sources.list.d/prawnos.list
-if [ "$DEBIAN_SUITE" != "sid" ]
+if [ "$DEBIAN_SUITE" != "sid" ] && [ "$DEBIAN_SUITE" != "testing" ]
 then
     # sid doesn't have updates or security; they're present for all other suites
     cat $build_resources_apt/updates.list >> $outmnt/etc/apt/sources.list
     sed -i -e "s/suite/$DEBIAN_SUITE/g" $outmnt/etc/apt/sources.list
     # sid doesn't have backports; it's present for all other suites
-    cp $build_resources_apt/backports.list $outmnt/etc/apt/sources.list.d/
+    #cp $build_resources_apt/backports.list $outmnt/etc/apt/sources.list.d/
     sed -i -e "s/suite/$DEBIAN_SUITE/g" $outmnt/etc/apt/sources.list.d/backports.list
     #setup apt pinning
     cp $build_resources_apt/backports.pref $outmnt/etc/apt/preferences.d/
