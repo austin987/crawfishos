@@ -14,10 +14,10 @@ Package-List:
  xsecurelock deb x11 optional arch=any
 Checksums-Sha1:
  faf29b404ab990aebce3adca7f0cf152972942ad 213362 xsecurelock_1.5.1.orig.tar.gz
- a2304f6926e1ee1ceb08229bbeb64188ea19f1e6 2588 xsecurelock_1.5.1-2.debian.tar.xz
+ dd706822507f7ae5166628b2253c4a2fe2f5de35 2580 xsecurelock_1.5.1-2.debian.tar.xz
 Checksums-Sha256:
  37f81d230b6a35881dedee9f68971f94aa364dbb127c76db22b039a584a85918 213362 xsecurelock_1.5.1.orig.tar.gz
- df041c2fb7bd6047c9646ec35191ea8a7c0535c4d214c1e2606f7becd97ee51b 2588 xsecurelock_1.5.1-2.debian.tar.xz
+ caa6efaa72c476a9114da76fba6b977f680e6577c02b78b7d99acca7c50860d3 2580 xsecurelock_1.5.1-2.debian.tar.xz
 Files:
  aad22687d545e0cb42b65e4c60bdbea5 213362 xsecurelock_1.5.1.orig.tar.gz
- e54d2b64e78be6f8c2f15e20df4fec8c 2588 xsecurelock_1.5.1-2.debian.tar.xz
+ 305e6894758bb1b17dc4dac3b59a21d8 2580 xsecurelock_1.5.1-2.debian.tar.xz
