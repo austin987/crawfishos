@@ -74,9 +74,9 @@ main() {
     # The find fallback is for non git users, e.g., distros packaging shellcheck or end users
     # running shell-checks from a tarball download.
     if [ -d .git ] ; then
-        files_to_check="$(git ls-files | xargs file | grep -e 'shell script' | cut -d : -f1)"
+        files_to_check="$(git ls-files | xargs file | grep -e 'shell script' -e '/bin/busybox sh script' | cut -d : -f1)"
     else
-        files_to_check="$(find . -type f -exec file {} \; | grep -e 'shell script' | cut -d : -f1)"
+        files_to_check="$(find . -type f -exec file {} \; | grep -e 'shell script' -e '/bin/busybox sh script' | cut -d : -f1)"
     fi
 
     # Generic shellscript checks:
