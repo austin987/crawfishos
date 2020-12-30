@@ -52,6 +52,10 @@ if [ "$1" = configure ] ; then
     f=libinput-gestures.conf
     divert_and_link $DIR $PKG $TARGET_PATH $f
 
+    TARGET_PATH=/etc/default/
+    f=xkb/keyboard
+    divert_and_link $DIR $PKG $TARGET_PATH $f
+
 fi
 
 # patch xkb if it isn't already

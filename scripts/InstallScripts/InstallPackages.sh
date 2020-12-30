@@ -100,6 +100,8 @@ fi
 if [ "$DE" = "xfce" ]
 then
   apt install -y ${xfce_debs_download[@]}
+  # dirty hack, seems changing the package locally didn't work (I assume it's getting a .deb from elsewhere, or I messed up)?
+  rm /etc/default/keyboard
   apt install -y ${prawnos_xfce_debs_prebuilt_download[@]}
 
   # remove light-locker, as it is broken on this machine. See issue https://github.com/SolidHal/PrawnOS/issues/56#issuecomment-504681175

@@ -11,6 +11,8 @@ lightdm/lightdm-gtk-greeter.conf /etc/prawnos/prawnos-xfce-config/etc/lightdm/
 
 libinput-gestures/libinput-gestures.conf /etc/prawnos/prawnos-xfce-config/etc/
 
+xkb/keyboard /etc/default/
+
 # files we can just install
 libinput-gestures/libinput-gestures.desktop /etc/xdg/autostart/
 brightness/backlight_* /usr/sbin/
@@ -21,8 +23,6 @@ plank/plank-launchers/* /etc/skel/.config/plank/dock1/launchers/
 xkb/compat/* /usr/share/X11/xkb/compat/
 xkb/keycodes/* /usr/share/X11/xkb/keycodes/
 xkb/symbols/* /usr/share/X11/xkb/symbols/
-
-xkb/keyboard /etc/default/
 
 # xkb patches, to be used during postinstall
 xkb/rules/base.patch /etc/prawnos/prawnos-xfce-config/xkb/patches/
