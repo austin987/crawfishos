@@ -166,7 +166,6 @@ prawnos_base_debs_prebuilt_install=(
 # packages built by prawnos, to be installed when running InstallPrawnOS
 # and choosing xfce
 prawnos_xfce_debs_prebuilt_download=(
-    xsecurelock
     prawnos-xfce-config
     libinput-gestures
 )
@@ -226,6 +225,7 @@ xfce_debs_download=(
     xfce4
     xfce4-goodies
     xfce4-power-manager
+    xfce4-screensaver
     xfce4-terminal
 )
 
