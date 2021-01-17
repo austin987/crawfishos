@@ -198,7 +198,7 @@ qemu-debootstrap --arch $TARGET_ARCH $DEBIAN_SUITE \
                  --cache-dir=$PRAWNOS_BUILD/debootstrap-apt-cache/
 
 chroot $outmnt passwd -d root
-echo -n PrawnOS > $outmnt/etc/hostname
+echo -n CrawfishOS > $outmnt/etc/hostname
 
 #Setup the chroot for apt
 #This is what https://wiki.debian.org/EmDebian/CrossDebootstrap suggests
@@ -245,6 +245,10 @@ cp $build_resources_apt/deb.prawnos.com.gpg.key $install_dir/resources/
 cp scripts/InstallScripts/* $install_dir/scripts/
 cp $PRAWNOS_SHARED_SCRIPTS/package_lists.sh $install_dir/scripts/
 ln -s $install_dir_direct/scripts/InstallPrawnOS.sh $outmnt/bin/InstallPrawnOS
+
+# Just in case:
+ln -s $install_dir_direct/scripts/InstallPrawnOS.sh $outmnt/bin/InstallCrawfishOS
+ln -s $outmnt/etc/prawnos $outmnt/etc/crawfishos
 
 #Bring in the deb.prawnos.com gpg keyring
 chroot $outmnt apt-key add /etc/prawnos/install/resources/deb.prawnos.com.gpg.key
@@ -321,7 +325,7 @@ cp -f $build_resources/console-font.sh $outmnt/etc/profile.d/console-font.sh
 
 #Cleanup hosts
 rm -rf $outmnt/etc/hosts #This is what https://wiki.debian.org/EmDebian/CrossDebootstrap suggests
-echo -n "127.0.0.1        PrawnOS" > $outmnt/etc/hosts
+echo -n "127.0.0.1        CrawfishOS" > $outmnt/etc/hosts
 
 #Cleanup apt retry
 chroot $outmnt rm -f /etc/apt/apt.conf.d/80-retries

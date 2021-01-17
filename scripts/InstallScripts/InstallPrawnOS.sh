@@ -376,7 +376,7 @@ setup_hostname() {
     #this works fine in the expansion use as TARGET_MOUNT is simply empty
 
     while true; do
-        read -r -p "Would you like to set a custom hostname (default: PrawnOS)? [y/n]" response
+        read -r -p "Would you like to set a custom hostname (default: CrawfishOS)? [y/n]" response
         case $response in
             [Yy]*)
                 echo "-----Enter hostname:-----"
@@ -384,7 +384,7 @@ setup_hostname() {
                 # ensure no whitespace
                 case "$hostname" in *\ *) echo hostnames may not contain whitespace;;  *) break;; esac
                 ;;
-            [Nn]* ) hostname="PrawnOS"; break;;
+            [Nn]* ) hostname="CrawfishOS"; break;;
             * ) echo "Please answer y or n";;
         esac
     done

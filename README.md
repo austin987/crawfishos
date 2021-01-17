@@ -1,60 +1,57 @@
 <p align="center">
-<img src="/filesystem/resources/logo/newPrawn_transparent_high_compression.png" alt="PrawnOS" data-canonical-src="/resources/BuildResources/logo/newPrawn_transparent_high_compression.png" width="200" height="200" /></p>
+<img src="/filesystem/resources/logo/newPrawn_transparent_high_compression.png" alt="CrawfishOS" data-canonical-src="/resources/BuildResources/logo/newPrawn_transparent_high_compression.png" width="200" height="200" /></p>
 
 <h1 align="center">
-PrawnOS
+CrawfishOS
 </h1>
 
+### Forked from [PrawnoS](https://github.com/SolidHal/PrawnOS), which is a build system for making blobless Debian and mainline Linux kernel with support for libre ath9k wireless, dmcrypt/LUKS root partition encryption, and graphics acceleration using panfrost
 
-#### A build system for making blobless Debian and mainline Linux kernel with support for libre ath9k wireless, dmcrypt/LUKS root partition encryption, and graphics acceleration using panfrost
+CrawfishOS allows blobs (in particular, for onboard Broadcom wireless). Otherwise it aims to match upstream PrawnOS (aside from PRs pending upstream).
+
+Current pending upstream work includes:
+* https://github.com/SolidHal/PrawnOS/pull/267
+* https://github.com/SolidHal/PrawnOS/pull/268
+* https://github.com/SolidHal/PrawnOS/pull/269
+* https://github.com/SolidHal/PrawnOS/pull/270
+* https://github.com/SolidHal/PrawnOS/pull/271
+
+Not PRed for misc reasons:
+* keyboardhack: PrawnOS package overwrites another package's file. rm it first. Probably a bug, ignored for now.
+* leave lilyterm alone for now: something later tries to pull it in, so if there's no internet connection, install fails. Need to find what's pulling it in.
+* Revert "bump armhf to 5.10.1, upload package": 5.10.1 breaks booting on speedy/emmc for me. Need a dedicated issue (wanted to try newer kernel first, maybe).
+* scripts/Shared/package_lists.sh: use xfce4-screensaver instead of xsecurelock on xfce: depends on other pending PRs
+* scripts/InstallScripts/InstallPackages.sh: remove dead code: depends on other pending PRs
 
 Supports the following Devices:
 * armhf cpu:
     * Asus C201 (C201P) (C201PA) (veyron-speedy)
-    * Asus C100 (veyron-minnie)
-    * _BETA_ Asus Chromebit CS10 (veyron-mickey)
+    * _UNTESTED_ Asus C100 (veyron-minnie) (untested)
+    * _UNTESTED_ Asus Chromebit CS10 (veyron-mickey)
 * arm64 cpu:
-    * _BETA_ Samsung Chromebook Plus V1 (XE513C24) (gru-kevin)
-    * _ALPHA_ Asus C101p (gru-bob)
+    * _UNTESTED_ Samsung Chromebook Plus V1 (XE513C24) (gru-kevin)
+    * _UNTESTED_ Asus C101p (gru-bob)
 
 Build Debian filesystem with:
-* No blobs, anywhere. 
-* Sources from only main, not contrib or non-free which keeps Debian libre.
-* Currently PrawnOS supports xfce and gnome as choices for desktop enviroment.
+* Currently CrawfishOS supports xfce and gnome as choices for desktop enviroment.
 * full root filesystem encryption
 * mesa with support for panfrost for graphics acceleration 
 * functional sound, touchpad, keyboard mappings
 
-Build a deblobbed mainline kernel with:
+Build a blobby mainline kernel with:
 * Patches for reliable USB on veyron devices.
 * Patches to support the custom GPT partition table required to boot on veyron devices.
+* Support for onboard Broadcom (BCM4354) WiFi.
 * Support for Atheros AR9271 and AR7010 WiFi dongles.
 * Support for CSR8510 (and possibly other) bluetooth dongles.
 
-Don't want to use one of the two USB ports for the WiFi dongle? [check out this](#build-the-wifi-dongle-into-the-laptop)
-
-## Why
-
-Combined with Libreboot, an AR9271 or AR7010 WiFi dongle, and a libre OS (like Debian with the main repos, the one built by PrawnOS) the Asus c201 is a fully libre machine with no blobs, or microcode, or Intel Management Engine.
-
-### WARNING: flashing libreboot to asus c201 chromebooks that have recently been updated to a new version of chromeOS may leave the device in a non-functional (bricked) state.
-If you do not have a way to recover your device by using an external flasher as described in the second part of this page https://libreboot.org/docs/install/c201.html it would be safest to wait until this issue is resolved. I have opened a bug with libreboot, which can be found here https://notabug.org/libreboot/libreboot/issues/666 If you have any information that may help with debugging, please post it there.
-
-_The install process of PrawnOS does not flash your bios, so it is safe to use along with the default coreboot/depthcharge and does not risk bricking your device_
-
-
-## What is a blob?
-
-In the world of free and open-source software, the term is used to refer to proprietary device drivers, which are distributed without their source code, exclusively through binary code; in such use, the term binary blob is common.
-[wikipedia](https://en.wikipedia.org/wiki/Binary_large_object)
-
 ## Image Download
 
-If you don't want to or can't build the image, you can find downloads under <releases> https://github.com/SolidHal/PrawnOS/releases
+If you don't want to or can't build the image, you can find downloads under <releases> https://github.com/austin987/CrawfishOS/releases
 
 ## Dependencies
 
-Building PrawnOS has been tested on Debian 10 Buster (in a VM).
+Building CrawfishOS has been tested on Debian 10 Buster (in a VM).
 
 NOTE: _stretch doesn't work as the version of gcc-arm-none-eabi is too old_!
 
