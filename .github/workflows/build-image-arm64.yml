@@ -10,13 +10,17 @@ jobs:
     steps:
       - name: checkout project
         uses: actions/checkout@v2
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF##*/})"
+        id: extract_branch
       - name: build image
         run: sudo dpkg -i ./tests/resources/qemu-user-static_5.1+dfsg-4+b1_amd64.deb && 
              docker run --mount type=bind,source=$PWD,target=/PrawnOS
              --privileged -v/dev:/dev debian:bullseye
-             /bin/bash /PrawnOS/tests/build.sh "$GITHUB_SHA" arm64 Shiba image
+             /bin/bash /PrawnOS/tests/build.sh "$GITHUB_SHA" arm64 ${{ steps.extract_branch.outputs.branch }} image
       - name: publish image
         uses: actions/upload-artifact@v2
         with:
-          name: "CrawfishOS-Shiba-arm64-git-${{ github.sha }}.img.xz"
-          path: "CrawfishOS-Shiba-arm64-git-${{ github.sha }}.img.xz"
+          name: CrawfishOS-arm64-git-${{ steps.extract_branch.outputs.branch }}-${{ github.sha }}.img.xz
+          path: CrawfishOS-arm64-git-${{ steps.extract_branch.outputs.branch }}-${{ github.sha }}.img.xz

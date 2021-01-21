@@ -105,10 +105,23 @@ PRAWNOS_SUITE := Shiba
 endif
 
 PRAWNOS_GIT_SHA := $(shell git rev-parse HEAD)
+PRAWNOS_GIT_BRANCH := $(shell git branch --show-current)
 
+
+# GithubCI doesn't show any branch, extract it from ${GITHUB_REF##*/} as a fallback
+ifeq ($(PRAWNOS_GIT_BRANCH),)
+PRAWNOS_GIT_BRANCH := $(shell echo ${GITHUB_REF##*/})
+endif
+
+# If we're not on master, append the branch name/sha1 to the imagename
+ifeq ($(PRAWNOS_GIT_BRANCH),master)
+# FIXME: use tag here instead of PRAWNOS_SUITE
 PRAWNOS_IMAGE := $(PRAWNOS_ROOT)/CrawfishOS-$(PRAWNOS_SUITE)-$(TARGET).img
-PRAWNOS_IMAGE_GIT := $(PRAWNOS_ROOT)/CrawfishOS-$(PRAWNOS_SUITE)-$(TARGET)-git-$(PRAWNOS_GIT_SHA).img
-PRAWNOS_IMAGE_GIT_GZ := $(PRAWNOS_IMAGE_GIT).gz
+else
+PRAWNOS_IMAGE := $(PRAWNOS_ROOT)/CrawfishOS-$(TARGET)-git-$(PRAWNOS_GIT_BRANCH)-$(PRAWNOS_GIT_SHA).img
+endif
+
+PRAWNOS_IMAGE_GIT_GZ := $(PRAWNOS_IMAGE).gz
 PRAWNOS_IMAGE_BASE := $(PRAWNOS_IMAGE)-BASE
 
 ### BUILD SCRIPTS
