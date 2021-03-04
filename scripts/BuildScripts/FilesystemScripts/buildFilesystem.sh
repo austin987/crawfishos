@@ -190,12 +190,14 @@ fi
 export DEBIAN_FRONTEND=noninteractive
 # need ca-certs, gnupg, openssl to handle https apt links and key adding for deb.prawnos.com
 printf -v debootstrap_debs_install_joined '%s,' "${debootstrap_debs_install[@]}"
-qemu-debootstrap --arch $TARGET_ARCH $DEBIAN_SUITE \
+debootstrap \
+                 --arch $TARGET_ARCH \
+                 --cache-dir=$PRAWNOS_BUILD/debootstrap-apt-cache/ \
                  --include ${debootstrap_debs_install_joined%,} \
                  --keyring=$build_resources_apt/debian-archive-keyring.gpg \
+                 $DEBIAN_SUITE \
                  $outmnt \
-                 $PRAWNOS_DEBOOTSTRAP_MIRROR \
-                 --cache-dir=$PRAWNOS_BUILD/debootstrap-apt-cache/
+                 $PRAWNOS_DEBOOTSTRAP_MIRROR
 
 chroot $outmnt passwd -d root
 echo -n CrawfishOS > $outmnt/etc/hostname
