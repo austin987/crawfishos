@@ -107,22 +107,17 @@ endif
 PRAWNOS_GIT_SHA := $(shell git rev-parse HEAD)
 PRAWNOS_GIT_BRANCH := $(shell git branch --show-current)
 
-
 # GithubCI doesn't show any branch, extract it from ${GITHUB_REF##*/} as a fallback
 ifeq ($(PRAWNOS_GIT_BRANCH),)
 PRAWNOS_GIT_BRANCH := $(shell echo ${GITHUB_REF##*/})
 endif
 
-# If we're not on master, append the branch name/sha1 to the imagename
-ifeq ($(PRAWNOS_GIT_BRANCH),master)
-# FIXME: use tag here instead of PRAWNOS_SUITE
-PRAWNOS_IMAGE := $(PRAWNOS_ROOT)/CrawfishOS-$(PRAWNOS_SUITE)-$(TARGET).img
-else
 PRAWNOS_IMAGE := $(PRAWNOS_ROOT)/CrawfishOS-$(TARGET)-git-$(PRAWNOS_GIT_BRANCH)-$(PRAWNOS_GIT_SHA).img
-endif
-
-PRAWNOS_IMAGE_GIT_GZ := $(PRAWNOS_IMAGE).gz
 PRAWNOS_IMAGE_BASE := CrawfishOS-$(TARGET)-BASE
+
+# For releases, use the git tag
+PRAWNOS_GIT_TAG := $(shell git describe --tags --dirty)
+PRAWNOS_IMAGE_RELEASE_GZ := CrawfishOS-$(PRAWNOS_GIT_TAG)-$(TARGET).img.gz
 
 ### BUILD SCRIPTS
 PRAWNOS_BUILD_SCRIPTS := $(PRAWNOS_SCRIPTS)/BuildScripts

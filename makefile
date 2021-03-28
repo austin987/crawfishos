@@ -105,14 +105,14 @@ image:
 write_image: $(PRAWNOS_IMAGE)
 	$(PRAWNOS_IMAGE_SCRIPTS_WRITE_IMAGE) $(PRAWNOS_IMAGE) $(PDEV)
 
-.PHONE: release
-release: $(PRAWNOS_IMAGE_GIT_GZ)
+.PHONY: release
+release: $(PRAWNOS_IMAGE_RELEASE_GZ)
 
 $(PRAWNOS_IMAGE):
 	$(MAKE) image
 
-$(PRAWNOS_IMAGE_GIT_GZ): $(PRAWNOS_IMAGE)
-	gzip -c $(PRAWNOS_IMAGE) > $(PRAWNOS_IMAGE_GIT_GZ)
+$(PRAWNOS_IMAGE_RELEASE_GZ): $(PRAWNOS_IMAGE)
+	gzip -c $(PRAWNOS_IMAGE) > $(PRAWNOS_IMAGE_RELEASE_GZ)
 
 #:::::::::::::::::::::::::::::: dependency management ::::::::::::::::::::::::::
 
