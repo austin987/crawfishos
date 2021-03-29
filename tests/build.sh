@@ -53,7 +53,7 @@ make install_dependencies_yes TARGET=$TEST_TARGET
              # A) that would be an additional package to install,
              # B) github actions would then nest THAT zip inside a second zip, see https://github.com/actions/upload-artifact/issues/39
              # when ^ is fixed, revisit
-             xz -1 ${IMG}
+             gzip -1 ${IMG}
              ;;
         kernel)
              make kernel TARGET=$TEST_TARGET

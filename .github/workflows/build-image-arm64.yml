@@ -22,5 +22,5 @@ jobs:
       - name: publish image
         uses: actions/upload-artifact@v2
         with:
-          name: CrawfishOS-arm64-git-${{ steps.extract_branch.outputs.branch }}-${{ github.sha }}.img.xz
-          path: CrawfishOS-arm64-git-${{ steps.extract_branch.outputs.branch }}-${{ github.sha }}.img.xz
+          name: CrawfishOS-arm64-git-${{ steps.extract_branch.outputs.branch }}-${{ github.sha }}.img.gz
+          path: CrawfishOS-arm64-git-${{ steps.extract_branch.outputs.branch }}-${{ github.sha }}.img.gz
