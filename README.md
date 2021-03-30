@@ -72,7 +72,7 @@ These packages are required:
 ```
 
 ## Build
-Clone this Git repo: `git clone --recurse-submodules https://github.com/SolidHal/PrawnOS`
+Clone this Git repo: `git clone --recurse-submodules https://github.com/austin987/crawfishos`
 
 All make commands required a TARGET=$ARCH to specify either armhf or arm64. 
 See the top of the README for if you don't know which your device is.
@@ -351,13 +351,6 @@ On older PrawnOS releases or other distributions, you can run the `buildCrossyst
 sudo /InstallScripts/buildCrossystem.sh
 ```
 
-### Build the WiFi dongle into the laptop
-
-Sick of having a USB dongle on the outside of your machine for wi-fi? Want to be able to use two USB devices at once without a hub? 
-Check out the instructions here for the c201: https://github.com/SolidHal/AsusC201-usb-wifi-from-webcam
-And here for the samsung chromebook plus v1: https://github.com/SolidHal/Samsung_Chromebook_plus_v1_wifi_from_webcam
-Warning: decent soldering skills required
-
 ## Troubleshooting
 
 The pulse audio mixer will only run if you are logged in as a non-root account. This is an issue (feature?) of pulse audio
@@ -367,16 +360,6 @@ IRC - You can find PrawnOS on the #prawnos channel on freenode
 
 ## Credits and Legal Information
 
-Thanks to dimkr for his great devsus scripts for the Chrome OS 3.14 kernel, from which PrawnOS took much inspiration
-https://github.com/dimkr/devsus
+Thanks to SolidHal for [PrawnoS](https://github.com/SolidHal/PrawnOS), on which CrawfishOS is based.
 
-Because PrawnOS started as a fork of devsus-3.14, some of this repo's ancient history can be found at https://github.com/SolidHal/devsus/tree/hybrid_debian
-
-PrawnOS is free and unencumbered software released under the terms of the GNU
-General Public License, version 2; see COPYING for the license text. For a list
-of its authors and contributors, see AUTHORS.
-
-
-
-[![Github All Releases](https://img.shields.io/github/downloads/SolidHal/PrawnOS/total.svg)]() [![Built with Spacemacs](https://cdn.rawgit.com/syl20bnr/spacemacs/442d025779da2f62fc86c2082703697714db6514/assets/spacemacs-badge.svg)](http://spacemacs.org)
-
+Thanks to Maccraft123 for [ShrimpOS](https://github.com/Maccraft123/ShrimpOS)/showing how to get proprietary wifi working.
