@@ -250,7 +250,7 @@ ln -s $install_dir_direct/scripts/InstallPrawnOS.sh $outmnt/bin/InstallPrawnOS
 
 # Just in case:
 ln -s $install_dir_direct/scripts/InstallPrawnOS.sh $outmnt/bin/InstallCrawfishOS
-ln -s $outmnt/etc/prawnos $outmnt/etc/crawfishos
+ln -s prawnos $outmnt/etc/crawfishos
 
 #Bring in the deb.prawnos.com gpg keyring
 chroot $outmnt apt-key add /etc/prawnos/install/resources/deb.prawnos.com.gpg.key
