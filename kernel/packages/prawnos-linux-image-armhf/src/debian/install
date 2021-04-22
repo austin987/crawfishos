@@ -1,2 +1,3 @@
+lib/modules
 prawnos-linux-image-armhf* boot
 FlashKernelPartition.sh etc/prawnos/kernel

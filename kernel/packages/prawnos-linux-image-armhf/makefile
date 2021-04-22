@@ -40,6 +40,8 @@ $(PACKAGE_NAME_ORIG_TAR):
 	rm -rf $(ORIG)
 	rm -f $(PACKAGE)_*-*.orig.tar.gz
 	mkdir $(ORIG)
+	mkdir -p $(ORIG)/lib
+	cp -r $(PRAWNOS_KERNEL_BUILD)/lib/modules $(ORIG)/lib/
 	cp $(PRAWNOS_KERNEL_BUILT) $(ORIG)/$(PACKAGE_NAME_ORIG)
 	cp $(PRAWNOS_KERNEL_RESOURCES_SHARED)/FlashKernelPartition.sh $(ORIG)/
 	tar -czf $(PACKAGE_NAME_ORIG_TAR) -C $(ORIG)/ .
