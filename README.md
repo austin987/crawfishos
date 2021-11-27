@@ -5,7 +5,7 @@
 CrawfishOS
 </h1>
 
-### Forked from [PrawnoS](https://github.com/SolidHal/PrawnOS), which is a build system for making blobless Debian and mainline Linux kernel with support for libre ath9k wireless, dmcrypt/LUKS root partition encryption, and graphics acceleration using panfrost
+### Forked from [PrawnOS](https://github.com/SolidHal/PrawnOS), which is a build system for making blobless Debian and mainline Linux kernel with support for libre ath9k wireless, dmcrypt/LUKS root partition encryption, and graphics acceleration using panfrost
 
 CrawfishOS allows blobs (in particular, for onboard Broadcom wireless). Otherwise it aims to match upstream PrawnOS (aside from PRs pending upstream).
 
