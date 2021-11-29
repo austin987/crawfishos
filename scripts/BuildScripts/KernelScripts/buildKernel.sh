@@ -93,7 +93,8 @@ else
     sleep 10
 fi
 
-make -j $(($(nproc) +1))  CROSS_COMPILE=$CROSS_COMPILER ARCH=$KERNEL_ARCH $IMAGE
+make -j $(($(nproc) +1))  CROSS_COMPILE=$CROSS_COMPILER ARCH=$KERNEL_ARCH $IMAGE modules
+make -j $(($(nproc) +1))  CROSS_COMPILE=$CROSS_COMPILER ARCH=$KERNEL_ARCH INSTALL_MOD_PATH=. modules_install
 make -j $(($(nproc) +1))  CROSS_COMPILE=$CROSS_COMPILER ARCH=$KERNEL_ARCH DTC_FLAGS="-@" dtbs
 mkimage -D "-I dts -O dtb -p 2048" -f kernel.its vmlinux.uimg
 dd if=/dev/zero of=bootloader.bin bs=512 count=1
