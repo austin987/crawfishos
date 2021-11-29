@@ -5,7 +5,7 @@
 CrawfishOS
 </h1>
 
-### Forked from [PrawnoS](https://github.com/SolidHal/PrawnOS), which is a build system for making blobless Debian and mainline Linux kernel with support for libre ath9k wireless, dmcrypt/LUKS root partition encryption, and graphics acceleration using panfrost
+### Forked from [PrawnOS](https://github.com/SolidHal/PrawnOS), which is a build system for making blobless Debian and mainline Linux kernel with support for libre ath9k wireless, dmcrypt/LUKS root partition encryption, and graphics acceleration using panfrost
 
 CrawfishOS allows blobs (in particular, for onboard Broadcom wireless). Otherwise it aims to match upstream PrawnOS (aside from PRs pending upstream).
 
@@ -26,7 +26,7 @@ Not PRed for misc reasons:
 Supports the following Devices:
 * armhf cpu:
     * Asus C201 (C201P) (C201PA) (veyron-speedy)
-    * _UNTESTED_ Asus C100 (veyron-minnie) (untested)
+    * Asus C100 (C100P) (C100PA) (veyron-minnie)
     * _UNTESTED_ Asus Chromebit CS10 (veyron-mickey)
 * arm64 cpu:
     * _UNTESTED_ Samsung Chromebook Plus V1 (XE513C24) (gru-kevin)
